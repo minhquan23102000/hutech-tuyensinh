@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="vie">
+
+<head>
+    {%block head%}
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="..\static\css\materialize.css" />
+    <link rel="stylesheet" type="text/css" href="..\static\css\glyphicons.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="..\static\css\chatbox1.css" />
+    <link rel="stylesheet" type="text/css" href="..\static\css\typing.css" />
+
+    <script type="text/javascript" src="..\static\js\materialize.js"></script>
+    <script type="text/javascript" src="\static\js\jquery.min.js"></script>
+    <script type="text/javascript" src="..\static\js\chatbox.js"></script>
+
+
+    <title>{% block title %}{% endblock %} - HUTECH</title>
+    {%endblock%}
+</head>
+
+<body>
+    {%block body%} {%endblock%}
+
+    <!-- chatbox -->
+    <div class="chat-box-container">
+        <div id="chat-circle">
+            <a class="btn-floating btn-large waves-effect waves-circle waves-orange pulse amber lighten-4">
+                <i class="large material-icons black-text">adb</i>
+            </a>
+
+        </div>
+
+        <div class="chat-box">
+            <div class="">
+                <div class="card-panel no-padding no-margin">
+                    <div class="row valign-wrapper chat-box-header no-margin">
+                        <div class="col s3">
+                            <img src="/static/img/chatbot_icon.gif" class="circle responsive-img" />
+                        </div>
+                        <div class="col s6">
+                            <h6 class='black-text'>Tư vấn viên</h6>
+                        </div>
+
+                        <div class="col s3">
+                            <span class="chat-box-toggle"><i class="material-icons">close</i></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="chat-box-body">
+                <div class="chat-box-overlay"></div>
+                <div class="chat-logs">
+                    <div id="cm-msg-0" class="chat-msg user">
+                        <div class="cm-msg-text">Xin chào, mình là tư vấn viên. Vui lòng được giải đáp các thắc mắc của bạn về dịch vụ công.</div>
+                    </div>
+                </div>
+                <!--chat-log -->
+            </div>
+            <div class="chat-input">
+
+                <form class="row valign-wrapper">
+                    <div class="col s10">
+                        <input class="no-border" type="text" id="chat-input" placeholder="Nhập câu hỏi..." />
+                        <button type="submit" id="chat-submit" style="display:none;"></button>
+                    </div>
+                    <div class="col s2">
+                        <button class="btn-flat" id="speech">
+                            <i class="small material-icons" id="speech-icon"> mic_off </i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
