@@ -1,346 +1,364 @@
 {% extends 'base.html' %}
-
-{%block title%} Đăng ký tuyển sinh học bạ {%endblock%}
-
-{%block head%} 
-{{super()}}
-
-{%endblock%} 
-
-
-
-{%block body%}
-<div id="header" class="row valign-wrapper center-align section">
-    <div class="col s6">
-        <img src="..\static\img\logo.jpg" class="responsive-img" />
+{% block title %}Đăng ký tuyển sinh học bạ{% endblock %}
+{% block head %}{{ super()}}{% endblock %}
+{% block body %}
+    <div id="header" class="row valign-wrapper center-align section">
+        <div class="col s6">
+            <img src="..\static\img\logo.jpg" class="responsive-img" />
+        </div>
+        <div class="col s6">
+            <h5 class="red-text left">Tri thức - Đạo đức - Sáng tạo</h5>
+        </div>
     </div>
-    <div class="col s6">
-        <h5 class="red-text left">Tri thức - Đạo đức - Sáng tạo</h5>
+    <div class="divider blue"></div>
+    <div id="slider" class="row center-align">
+        <div class="col s12">
+            <img src="..\static\img\banner_hocba.png" alt="" class="responsive-img" />
+        </div>
     </div>
-</div>
-<div class="divider blue"></div>
-
-<div id="slider" class="row center-align">
-    <div class="col s12">
-        <img src="..\static\img\banner_hocba.png" alt="" class="responsive-img" />
-    </div>
-</div>
-
-<div id="body" class="container">
-    <div class="row">
-        <p class="col s2"> </p>
-        <div class="col s8">
-            <div class="card">
-                <div class="card-title center-align">
-                    <img src="..\static\img\luu-y-khi-dang-ky.png" class="responsive-img" />
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="card-content le">
-                    <div class="">
-                        <div class="section">
-                            <span>
-                                    Chào mừng bạn đến với trang Đăng ký Xét tuyển học bạ trực tuyến của Đại học HUTECH !
-                                </span>
-                        </div>
-                        <div class="section">
-                            <span>
+    <div id="body" class="container">
+        <div class="row">
+            <p class="col s2">
+            </p>
+            <div class="col s8">
+                <div class="card">
+                    <div class="card-title center-align">
+                        <img src="..\static\img\luu-y-khi-dang-ky.png" class="responsive-img" />
+                    </div>
+                    <div class="divider"></div>
+                    <div class="card-content le">
+                        <div class="">
+                            <div class="section">
+                                <span>Chào mừng bạn đến với trang Đăng ký Xét tuyển học bạ trực tuyến của Đại học HUTECH !</span>
+                            </div>
+                            <div class="section">
+                                <span>
                                     Ngay bây giờ, để tăng cơ hội trúng tuyển vào gần 60 ngành đào tạo của HUTECH sớm
                                     nhất, bạn vui lòng điền các thông tin chính xác theo mẫu dưới đây để hoàn tất thủ
                                     tục quan trọng nhất và được ưu tiên xét tuyển vào trường.
                                 </span>
-                        </div>
-                        <div class="secion">
-                            <span>
+                            </div>
+                            <div class="secion">
+                                <span>
                                     <ul class="bullet">
-                                        <li>Nếu bạn đã có học bạ trong tay, vui lòng chuẩn bị ngay lúc này để đính kèm
-                                            lên hệ thống xét tuyển.</li>
-                                        <li>Nếu chưa có học bạ lúc này, bạn đừng quá lo lắng - vì có thể liên hệ trường
-                                            THPT đang theo học để bổ sung theo hướng dẫn của HUTECH.</li>
+                                        <li>
+                                            Nếu bạn đã có học bạ trong tay, vui lòng chuẩn bị ngay lúc này để đính kèm
+                                            lên hệ thống xét tuyển.
+                                        </li>
+                                        <li>
+                                            Nếu chưa có học bạ lúc này, bạn đừng quá lo lắng - vì có thể liên hệ trường
+                                            THPT đang theo học để bổ sung theo hướng dẫn của HUTECH.
+                                        </li>
                                     </ul>
                                 </span>
-                        </div>
-                        <div class="">
-                            <span>
-                                    Nào, cùng bắt đầu điền thông tin đăng ký nhé!
-                                </span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <p class="col s2"> </p>
-    </div>
-
-
-    <div class="row">
-        <p class="col s2"> </p>
-        <div class="col s8">
-            <div class="card">
-                <div class="card-title center-align">
-                    <img src="..\static\img\thong-tin-ho-so.png" class="responsive-img" />
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="card-content">
-                    <div class="row">
-                        <div class="col s6 input-field">
-                            <input type="text" class="validate" id="name" />
-                            <label for="name">Họ tên</label>
-                        </div>
-                        <div class="col s6 input-field">
-                            <select id="gender">
-                                    <option value="" disabled selected>Giới tính</option>
-                                    <option value="nam">Nam</option>
-                                    <option value="nu">Nữ</option>
-                                </select>
-                            <label>Giới tính</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col s6 input-field">
-                            <input type="text" class="validate datepicker" id="date_birth" />
-                            <label for="date_birth">Ngày sinh</label>
-                        </div>
-                        <div class="col s3 input-field">
-                            <input type="text" class="validate" id="dantoc" />
-                            <label for="dantoc">Dân tộc</label>
-                        </div>
-                        <div class="col s3 input-field">
-                            <input type="text" class="validate" id="tongiao" />
-                            <label for="tongiao">Tôn giáo</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col s3 input-field">
-                            <input type="text" class="validate" id="place_birth" />
-                            <label for="place_birth">Nơi sinh</label>
-                        </div>
-                        <div class="col s9 input-field">
-                            <input type="text" class="validate" id="address" />
-                            <label for="address">Hộ khẩu thường trú</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col s4 input-field">
-                            <input type="number" min="0" class="validate" id="id" />
-                            <label for="id">Số CCCD</label>
-                        </div>
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="noicap" />
-                            <label for="noicap">Nơi cấp</label>
-                        </div>
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate datepicker" id="ngaycap" />
-                            <label for="ngaycap">Ngày cấp</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="tenlop" />
-                            <label for="tenlop">Tên lớp</label>
-                        </div>
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="hocluc" />
-                            <label for="hocluc">Học lực</label>
-                        </div>
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="hanhkiem" />
-                            <label for="hanhkiem">Hạnh kiểm</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <p class="section">Ghi rõ tên tỉnh (thành phố), huyện (quận), xã (phường) vào ô hộ khẩu thường trú.</p>
-                        <div class="row valign-wrapper no-margin">
-                            <div class="col s7">
-                                <p>Để tiện hơn bạn có thể nộp hình ảnh mặt trước CCCD tại đây để điền hồ sơ tự động
-                                </p>
                             </div>
-                            <div class="col s5">
-                                <div class="card center-align">
-                                    <div id="cccd_img_holder" class="card-image">
-                                        <i class="large material-icons grey-text waves-effect waves-green">add_a_photo</i>
+                            <div class="">
+                                <span>Nào, cùng bắt đầu điền thông tin đăng ký nhé!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="col s2">
+            </p>
+        </div>
+        <div class="row">
+            <p class="col s2">
+            </p>
+            <div class="col s8">
+                <div class="card">
+                    <div class="card-title center-align">
+                        <img src="..\static\img\thong-tin-ho-so.png" class="responsive-img" />
+                    </div>
+                    <div class="divider"></div>
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s6 input-field">
+                                <input type="text" class="validate" id="name" />
+                                <label for="name">Họ tên</label>
+                            </div>
+                            <div class="col s6 input-field">
+                                <select id="gender">
+                                    <option value="" disabled selected>
+                                        Giới tính
+                                    </option>
+                                    <option value="nam">
+                                        Nam
+                                    </option>
+                                    <option value="nu">
+                                        Nữ
+                                    </option>
+                                </select>
+                                <label>Giới tính</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s6 input-field">
+                                <input type="text" class="validate datepicker" id="date_birth" />
+                                <label for="date_birth">Ngày sinh</label>
+                            </div>
+                            <div class="col s3 input-field">
+                                <input type="text" class="validate" id="dantoc" />
+                                <label for="dantoc">Dân tộc</label>
+                            </div>
+                            <div class="col s3 input-field">
+                                <input type="text" class="validate" id="tongiao" />
+                                <label for="tongiao">Tôn giáo</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s3 input-field">
+                                <input type="text" class="validate" id="place_birth" />
+                                <label for="place_birth">Nơi sinh</label>
+                            </div>
+                            <div class="col s9 input-field">
+                                <input type="text" class="validate" id="address" />
+                                <label for="address">Hộ khẩu thường trú</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s4 input-field">
+                                <input type="number" min="0" class="validate" id="id" />
+                                <label for="id">Số CCCD</label>
+                            </div>
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="noicap" />
+                                <label for="noicap">Nơi cấp</label>
+                            </div>
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate datepicker" id="ngaycap" />
+                                <label for="ngaycap">Ngày cấp</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="tenlop" />
+                                <label for="tenlop">Tên lớp</label>
+                            </div>
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="hocluc" />
+                                <label for="hocluc">Học lực</label>
+                            </div>
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="hanhkiem" />
+                                <label for="hanhkiem">Hạnh kiểm</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class="section">
+                                Ghi rõ tên tỉnh (thành phố), huyện (quận), xã (phường) vào ô hộ khẩu thường trú.
+                            </p>
+                            <div class="row valign-wrapper no-margin">
+                                <div class="col s7">
+                                    <p>
+                                        Để tiện hơn bạn có thể nộp hình ảnh mặt trước CCCD tại đây để điền hồ sơ tự động
+                                    </p>
+                                </div>
+                                <div class="col s5">
+                                    <div class="card center-align">
+                                        <div id="cccd_img_holder" class="card-image">
+                                            <a href="#camera-modal" onclick="startCamera(this);" class="modal-trigger">
+                                                <i class="large material-icons grey-text waves-effect waves-green">add_a_photo</i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <p class="black-text text-bold">Nơi học THPT hoặc tương đương (ghi tên trường và nơi trường đóng: huyện (quận), tỉnh (thành phố)):</p>
-                    </div>
-
-                    <div class="row valign-wrapper no-margin">
-                        <div class="grey lighten-4 col s2">
-                            <p class=""> Năm lớp 10 </p>
+                        <div class="row">
+                            <p class="black-text text-bold">
+                                Nơi học THPT hoặc tương đương (ghi tên trường và nơi trường đóng: huyện (quận), tỉnh (thành phố)):
+                            </p>
                         </div>
-
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="namlop10_tinh" />
-                            <label for="namlop10_tinh">Tên tỉnh</label>
+                        <div class="row valign-wrapper no-margin">
+                            <div class="grey lighten-4 col s2">
+                                <p class="">
+                                    Năm lớp 10
+                                </p>
+                            </div>
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="namlop10_tinh" />
+                                <label for="namlop10_tinh">Tên tỉnh</label>
+                            </div>
+                            <div class="col s5 input-field">
+                                <input type="text" class="validate" id="namlop10_truong" />
+                                <label for="namlop10_truong">Tên trường</label>
+                            </div>
                         </div>
-                        <div class="col s5 input-field">
-                            <input type="text" class="validate" id="namlop10_truong" />
-                            <label for="namlop10_truong">Tên trường</label>
+                        <div class="row valign-wrapper no-margin">
+                            <div class="grey lighten-4 col s2">
+                                <p class="">
+                                    Năm lớp 11
+                                </p>
+                            </div>
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="namlop11_tinh" />
+                                <label for="namlop11_tinh">Tên tỉnh</label>
+                            </div>
+                            <div class="col s5 input-field">
+                                <input type="text" class="validate" id="namlop11_truong" />
+                                <label for="namlop11_truong">Tên trường</label>
+                            </div>
                         </div>
-
-                    </div>
-                    <div class="row valign-wrapper no-margin">
-                        <div class="grey lighten-4 col s2">
-                            <p class=""> Năm lớp 11 </p>
+                        <div class="row valign-wrapper no-margin">
+                            <div class="grey lighten-4 col s2">
+                                <p class="">
+                                    Năm lớp 12
+                                </p>
+                            </div>
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="namlop12_tinh" />
+                                <label for="namlop12_tinh">Tên tỉnh</label>
+                            </div>
+                            <div class="col s5 input-field">
+                                <input type="text" class="validate" id="namlop12_truong" />
+                                <label for="namlop12_truong">Tên trường</label>
+                            </div>
                         </div>
-
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="namlop11_tinh" />
-                            <label for="namlop11_tinh">Tên tỉnh</label>
-                        </div>
-                        <div class="col s5 input-field">
-                            <input type="text" class="validate" id="namlop11_truong" />
-                            <label for="namlop11_truong">Tên trường</label>
-                        </div>
-
-                    </div>
-
-                    <div class="row valign-wrapper no-margin">
-                        <div class="grey lighten-4 col s2">
-                            <p class=""> Năm lớp 12 </p>
-                        </div>
-
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="namlop12_tinh" />
-                            <label for="namlop12_tinh">Tên tỉnh</label>
-                        </div>
-                        <div class="col s5 input-field">
-                            <input type="text" class="validate" id="namlop12_truong" />
-                            <label for="namlop12_truong">Tên trường</label>
-                        </div>
-
-                    </div>
-
-                    <div class="row valign-wrapper no-margin">
-                        <div class="col s9">
-                            <p>Đối tượng ưu tiên tuyển sinh: (Thuộc đối tượng nào thì chọn đối tượng bên phải)</p>
-                        </div>
-
-                        <div class="col s3 input-field">
-                            <select id="doituonguutien">
-                                    <option value="" disabled selected>Đối tượng ưu tiên</option>
-                                    <option value="01">01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
-                                    <option value="07">07</option>
+                        <div class="row valign-wrapper no-margin">
+                            <div class="col s9">
+                                <p>
+                                    Đối tượng ưu tiên tuyển sinh: (Thuộc đối tượng nào thì chọn đối tượng bên phải)
+                                </p>
+                            </div>
+                            <div class="col s3 input-field">
+                                <select id="doituonguutien">
+                                    <option value="" disabled selected>
+                                        Đối tượng ưu tiên
+                                    </option>
+                                    <option value="01">
+                                        01
+                                    </option>
+                                    <option value="02">
+                                        02
+                                    </option>
+                                    <option value="03">
+                                        03
+                                    </option>
+                                    <option value="04">
+                                        04
+                                    </option>
+                                    <option value="05">
+                                        05
+                                    </option>
+                                    <option value="06">
+                                        06
+                                    </option>
+                                    <option value="07">
+                                        07
+                                    </option>
                                 </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row valign-wrapper no-margin">
-                        <div class="col s9">
-                            <p>Khu vực ưu tiên tuyển sinh: (Thuộc khu vực nào thì chọn ký hiệu của khu vực (KV1,KV2-NT, KV2, KV3) vào ô khu vực ưu tiên)</p>
-                        </div>
-
-                        <div class="col s3 input-field">
-                            <select id="doituonguutien">
-                                    <option value="" disabled selected>Khu vực ưu tiên</option>
-                                    <option value="01">KV1</option>
-                                    <option value="02">KV2-NT</option>
-                                    <option value="03">KV2</option>
-                                    <option value="04">KV3</option>
+                        <div class="row valign-wrapper no-margin">
+                            <div class="col s9">
+                                <p>
+                                    Khu vực ưu tiên tuyển sinh: (Thuộc khu vực nào thì chọn ký hiệu của khu vực (KV1,KV2-NT, KV2, KV3) vào ô khu vực ưu tiên)
+                                </p>
+                            </div>
+                            <div class="col s3 input-field">
+                                <select id="doituonguutien">
+                                    <option value="" disabled selected>
+                                        Khu vực ưu tiên
+                                    </option>
+                                    <option value="01">
+                                        KV1
+                                    </option>
+                                    <option value="02">
+                                        KV2-NT
+                                    </option>
+                                    <option value="03">
+                                        KV2
+                                    </option>
+                                    <option value="04">
+                                        KV3
+                                    </option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 input-field">
+                                <input type="text" class="validate" id="diachinhanbao" />
+                                <label for="diachinhanbao">Địa chỉ nhận báo</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="tinh" />
+                                <label for="tinh">
+                                    Tỉnh/thành
+                                </label>
+                            </div>
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="quan" />
+                                <label for="quan">
+                                    Quận/Huyện
+                                </label>
+                            </div>
+                            <div class="col s4 input-field">
+                                <input type="text" class="validate" id="phuong" />
+                                <label for="phuong">
+                                    Phường/Xã
+                                </label>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col s12 input-field">
-                            <input type="text" class="validate" id="diachinhanbao" />
-                            <label for="diachinhanbao">Địa chỉ nhận báo</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="tinh" />
-                            <label for="tinh">Tỉnh/thành</label>
-                        </div>
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="quan" />
-                            <label for="quan">Quận/Huyện</label>
-                        </div>
-                        <div class="col s4 input-field">
-                            <input type="text" class="validate" id="phuong" />
-                            <label for="phuong">Phường/Xã</label>
-                        </div>
-                    </div>
-
                 </div>
-
             </div>
+            <p class="col s2">
+            </p>
         </div>
-        <p class="col s2"> </p>
-    </div>
-
-    <div class="row">
-        <p class="col s2"> </p>
-        <div class="col s8">
-            <div class="card">
-                <div class="card-title center-align">
-                    <img src="..\static\img\thong-tin-dang-ky.png" class="responsive-img" />
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="card-content">
-                    <div class="section">
-                        Sau khi đã đọc và hiểu rõ các quy định về tiêu chí và điều kiện xét tuyển của Nhà trường, tôi đồng ý xét tuyển học bạ vào trình độ Đại học như sau: <i>(chọn phương thức xét
-                                tuyển)</i>
+        <div class="row">
+            <p class="col s2">
+            </p>
+            <div class="col s8">
+                <div class="card">
+                    <div class="card-title center-align">
+                        <img src="..\static\img\thong-tin-dang-ky.png" class="responsive-img" />
                     </div>
-
+                    <div class="divider">
+                    </div>
+                    <div class="card-content">
+                        <div class="section">
+                            Sau khi đã đọc và hiểu rõ các quy định về tiêu chí và điều kiện xét tuyển của Nhà trường, tôi đồng ý xét tuyển học bạ vào trình độ Đại học như sau: <i>(chọn phương thức xét
+                        tuyển)</i>
+                    </div>
                     <div class="secttion">
                         <p>
                             <label>
-                                    <input type="checkbox" />
-                                    <span class="text-bold">Xét tuyển bằng Tổng điểm Trung bình lớp 12 theo tổ hợp 3
-                                        môn</span>
-                                </label>
+                                <input type="checkbox" />
+                                <span class="text-bold">Xét tuyển bằng Tổng điểm Trung bình lớp 12 theo tổ hợp 3
+                                môn</span>
+                            </label>
                         </p>
                     </div>
                     <div class="secttion">
                         <p>
                             <label>
-                                    <input type="checkbox" />
-                                    <span class="text-bold"> Xét tuyển bằng Tổng điểm Trung bình 3 học kỳ (HK1, HK2 năm
-                                        lớp 11, HK1 năm lớp 12)
-                                    </span>
-                                </label>
+                                <input type="checkbox" />
+                                <span class="text-bold"> Xét tuyển bằng Tổng điểm Trung bình 3 học kỳ (HK1, HK2 năm
+                                    lớp 11, HK1 năm lớp 12)
+                                </span>
+                            </label>
                         </p>
-
                     </div>
-
                     <div class="section">
-                        <p><strong>Lưu ý:</strong> Thí sinh có thể chọn một trong hai hoặc chọn cả hai để tăng cơ hội trúng tuyển</p>
+                        <p>
+                            <strong>Lưu ý:</strong> Thí sinh có thể chọn một trong hai hoặc chọn cả hai để tăng cơ hội trúng tuyển
+                        </p>
                     </div>
-
                 </div>
-
             </div>
         </div>
-        <p class="col s2"> </p>
+        <p class="col s2">
+        </p>
     </div>
-
     <div class="row center-align">
-        <button class="btn red darken-2 white-text">ĐĂNG KÝ</button>
+        <button class="btn red darken-2 white-text">
+            ĐĂNG KÝ
+        </button>
     </div>
-
-    <!-- 
+    <!--
         <div class="row">
             <p class="col s2"> </p>
             <div class="col s8">
@@ -358,58 +376,112 @@
                 </div>
             </div>
             <p class="col s2"> </p>
-        </div> -->
-
-
+</div> -->
 </div>
-
-
-
-
 <footer class="page-footer blue darken-1 pad10">
     <div class="row container">
         <div class="col s6 padingtext">
             <b class="truso">Trụ sở :</b> 475A Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM
             <span class="coso">
-                    <br />
-                    <b>Cơ sở 475B</b> : 475B Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM
-                    <br />
-                    <b>Cơ sở Ung Văn Khiêm</b> : 31/36 Ung Văn Khiêm, P.25, Q.Bình
-                    Thạnh, TP.HCM
-                </span>
+                <br />
+                <b>Cơ sở 475B</b> : 475B Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM
+                <br />
+                <b>Cơ sở Ung Văn Khiêm</b> : 31/36 Ung Văn Khiêm, P.25, Q.Bình
+                Thạnh, TP.HCM
+            </span>
         </div>
         <div class="col s3 box-footer-2">
             <span style="display: block" class="phone">
-                    ĐT: (028) 5445 7777
-                </span> Fax: (028) 5445 4444
+                ĐT: (028) 5445 7777
+            </span> Fax: (028) 5445 4444
             <span style="display: block" class="emailtruong">Email: hutech@hutech.edu.vn</span>
         </div>
         <div class="col s3 text-center box-footer-3">
             <a href="http://www.hutech.edu.vn/" class="white-text">Trang Chủ</a> |
-            <a class="white-text" href="http://www.hutech.edu.vn/homepage/lien-he/so-do-den-truong">Sơ Đồ</a> |
-            <a class="white-text" href="http://www.hutech.edu.vn/homepage/lien-he/so-do-den-truong">Liên Hệ</a>
+            <a class="white-text"
+               href="http://www.hutech.edu.vn/homepage/lien-he/so-do-den-truong">Sơ Đồ</a> |
+            <a class="white-text"
+               href="http://www.hutech.edu.vn/homepage/lien-he/so-do-den-truong">Liên Hệ</a>
             <br />
             <a class="white-text" href="https://www.facebook.com/hutechuniversity">
-                <img src="http://www.hutech.edu.vn/images/img_blank.gif" class="icon_fb_small" />
+                <img src="http://www.hutech.edu.vn/images/img_blank.gif"
+                     class="icon_fb_small"/>
             </a>
-            <a class="white-text" target="_blank" href="https://www.youtube.com/user/dhcongnghetphcm">
-                <img src="http://www.hutech.edu.vn/images/img_blank.gif" class="icon_yt_small" />
+            <a class="white-text"
+               target="_blank"
+               href="https://www.youtube.com/user/dhcongnghetphcm">
+                <img src="http://www.hutech.edu.vn/images/img_blank.gif"
+                     class="icon_yt_small"/>
             </a>
-            <a class="white-text" target="_blank" href="https://plus.google.com/+hutech">
-                <img src="http://www.hutech.edu.vn/images/img_blank.gif" class="icon_gg_small" />
+            <a class="white-text"
+               target="_blank"
+               href="https://plus.google.com/+hutech">
+                <img src="http://www.hutech.edu.vn/images/img_blank.gif"
+                     class="icon_gg_small"/>
             </a>
-            <br />Bản quyền
-            <span style="font-size: small"><a class="white-text"
-                        href="http://www.hutech.edu.vn/admin"><strong>©</strong></a></span> 2019
-            <a class="white-text" href="https://plus.google.com/u/0/+hutech" rel="author">HUTECH</a>
+            <br />
+            Bản quyền
+            <span style="font-size: small"><a class="white-text" href="http://www.hutech.edu.vn/admin"><strong>©</strong></a></span> 2019
+            <a class="white-text"
+               href="https://plus.google.com/u/0/+hutech"
+               rel="author">HUTECH</a>
         </div>
     </div>
 </footer>
+<div id="modal-container">
+    <div id="camera-modal" class="modal pad10 fit-content">
+        <div class="modal-content">
+            <h4>
+                Chụp giấy tùy thân cho người nam
+            </h4>
+            </p>
+            Để chụp giấy tùy thân, xin bạn hãy cấp quyền camera cho trang web.
+            Khi chụp nên để giấy tùy thân ở chỗ sáng và chụp đầy đủ nội dung mặt trước của CCCD.
+            </p>
+            <div class="card">
+                <div class="card-content row center-align">
+                    <video class="responsive-video"
+                        width="500"
+                        height="400"
+                        id="video"
+                        autoplay>
+                    </video>
+                </div>
+                <div class="card-action">
+                    <div class="center-align section">
+                        <button id="click-photo" type="button-large" class="btn modal-close waves-effect">
+                            CHỤP
+                            <i class="right material-icons">camera_enhance</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<canvas id="canvas" width="500" height="400" style="display:none;"></canvas>
+</div>
+
 </body>
-
-
 <script type="text/javascript">
     M.AutoInit();
-</script>
 
-{%endblock%}
+        let camera_button = document.querySelector("#start-camera");
+        let video = document.querySelector("#video");
+        let click_button = document.querySelector("#click-photo");
+        let canvas = document.querySelector("#canvas");
+
+        async function startCamera(element) {
+            let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+            video.srcObject = stream;
+        };
+
+        click_button.addEventListener('click', function() {
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+            let image_data_url = canvas.toDataURL('image/jpeg');
+
+        });
+
+
+</script>
+{% endblock %}
