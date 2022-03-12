@@ -1,0 +1,5 @@
+categories:
+- đăng ký kết hôn
+conversations:
+- - Điền tờ khai đăng ký kết hôn?
+  - "ACTION:NAVIGATE:./to-khai/dang-ky-ket-hon:Hiện bạn đang cần điền tờ khai kết hôn, xin hãy cho mình hỗ trợ bạn nhé?"
