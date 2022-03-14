@@ -22,7 +22,8 @@ class StatementMixin(object):
         'created_at',
         'next_question_1',
         'next_question_2',
-        'next_question_3'
+        'next_question_3',
+        'auto_question'
     ]
 
     extra_statement_field_names = []
@@ -110,7 +111,8 @@ class Statement(StatementMixin):
         'storage',
         'next_question_1',
         'next_question_2',
-        'next_question_3'
+        'next_question_3',
+        'auto_question'
     )
 
     def __init__(self, text=None, in_response_to=None, **kwargs):
@@ -127,6 +129,7 @@ class Statement(StatementMixin):
         self.next_question_1 = kwargs.get('next_question_1', '')
         self.next_question_2 = kwargs.get('next_question_2', '')
         self.next_question_3 = kwargs.get('next_question_3', '')
+        self.auto_question = kwargs.get('auto_question','')
 
         if not isinstance(self.created_at, datetime):
             self.created_at = date_parser.parse(self.created_at)

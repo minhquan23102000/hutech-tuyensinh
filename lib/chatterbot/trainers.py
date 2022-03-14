@@ -18,16 +18,13 @@ class Trainer(object):
            can also be set to control this. ``show_training_progress`` will override
            the environment variable if it is set.
     """
-
     def __init__(self, chatbot, **kwargs):
         self.chatbot = chatbot
 
-        environment_default = os.getenv(
-            'CHATTERBOT_SHOW_TRAINING_PROGRESS', True)
-        self.show_training_progress = kwargs.get(
-            'show_training_progress',
-            environment_default
-        )
+        environment_default = os.getenv('CHATTERBOT_SHOW_TRAINING_PROGRESS',
+                                        True)
+        self.show_training_progress = kwargs.get('show_training_progress',
+                                                 environment_default)
 
     def get_preprocessed_statement(self, input_statement):
         """
@@ -49,12 +46,10 @@ class Trainer(object):
         Exception raised when a base class has not overridden
         the required methods on the Trainer base class.
         """
-
         def __init__(self, message=None):
             default = (
                 'A training class must be specified before calling train(). '
-                'See http://chatterbot.readthedocs.io/en/stable/training.html'
-            )
+                'See http://chatterbot.readthedocs.io/en/stable/training.html')
             super().__init__(message or default)
 
     def _generate_export_data(self):
@@ -81,7 +76,6 @@ class ListTrainer(Trainer):
     Allows a chat bot to be trained using a list of strings
     where the list represents a conversation.
     """
-
     def train(self, conversation):
         """
         Train the chat bot based on the provided list of
@@ -94,23 +88,19 @@ class ListTrainer(Trainer):
 
         for conversation_count, text in enumerate(conversation):
             if self.show_training_progress:
-                utils.print_progress_bar(
-                    'List Trainer',
-                    conversation_count + 1, len(conversation)
-                )
+                utils.print_progress_bar('List Trainer',
+                                         conversation_count + 1,
+                                         len(conversation))
 
             statement_search_text = self.chatbot.storage.tagger.get_bigram_pair_string(
                 text)
 
             statement = self.get_preprocessed_statement(
-                Statement(
-                    text=text,
-                    search_text=statement_search_text,
-                    in_response_to=previous_statement_text,
-                    search_in_response_to=previous_statement_search_text,
-                    conversation='training'
-                )
-            )
+                Statement(text=text,
+                          search_text=statement_search_text,
+                          in_response_to=previous_statement_text,
+                          search_in_response_to=previous_statement_search_text,
+                          conversation='training'))
 
             previous_statement_text = statement.text
             previous_statement_search_text = statement_search_text
@@ -125,7 +115,6 @@ class ChatterBotCorpusTrainer(Trainer):
     Allows the chat bot to be trained using data from the
     ChatterBot dialog corpus.
     """
-
     def train(self, *corpus_paths):
         from lib.chatterbot.corpus import list_corpus_files, load_corpus
 
@@ -146,20 +135,23 @@ class ChatterBotCorpusTrainer(Trainer):
                 if self.show_training_progress:
                     utils.print_progress_bar(
                         'Training ' + str(os.path.basename(file_path)),
-                        conversation_count + 1,
-                        len(corpus)
-                    )
+                        conversation_count + 1, len(corpus))
 
                 previous_statement_text = None
                 previous_statement_search_text = ''
                 next_questions = []
                 conversation_statements = []
+                auto_question = ''
 
                 for text in conversation:
 
                     if (isinstance(text, dict)):
-                        for next_question in text['nextquestion']:
-                            next_questions.append(next_question)
+                        if 'autoquestion' in text:
+                            auto_question = text['autoquestion']
+
+                        elif 'nextquestion' in text:
+                            for next_question in text['nextquestion']:
+                                next_questions.append(next_question)
 
                     else:
 
@@ -170,9 +162,9 @@ class ChatterBotCorpusTrainer(Trainer):
                             text=text,
                             search_text=statement_search_text,
                             in_response_to=previous_statement_text,
-                            search_in_response_to=previous_statement_search_text,
-                            conversation='training'
-                        )
+                            search_in_response_to=
+                            previous_statement_search_text,
+                            conversation='training')
 
                         statement.tags = categories
 
@@ -185,6 +177,7 @@ class ChatterBotCorpusTrainer(Trainer):
                         previous_statement_search_text = statement_search_text
 
                 for statement in conversation_statements:
+                    statement.auto_question = auto_question
                     statement.add_next_question(next_questions)
 
                 statements_to_create.extend(conversation_statements)
@@ -196,7 +189,6 @@ class UbuntuCorpusTrainer(Trainer):
     """
     Allow chatbots to be trained with the data from the Ubuntu Dialog Corpus.
     """
-
     def __init__(self, chatbot, **kwargs):
         super().__init__(chatbot, **kwargs)
         home_directory = os.path.expanduser('~')
@@ -208,12 +200,10 @@ class UbuntuCorpusTrainer(Trainer):
 
         self.data_directory = kwargs.get(
             'ubuntu_corpus_data_directory',
-            os.path.join(home_directory, 'ubuntu_data')
-        )
+            os.path.join(home_directory, 'ubuntu_data'))
 
-        self.extracted_data_directory = os.path.join(
-            self.data_directory, 'ubuntu_dialogs'
-        )
+        self.extracted_data_directory = os.path.join(self.data_directory,
+                                                     'ubuntu_dialogs')
 
         # Create the data directory if it does not already exist
         if not os.path.exists(self.data_directory):
@@ -270,8 +260,8 @@ class UbuntuCorpusTrainer(Trainer):
                     open_file.write(data)
                     if show_status:
                         done = int(50 * download / total_length)
-                        sys.stdout.write('\r[%s%s]' %
-                                         ('=' * done, ' ' * (50 - done)))
+                        sys.stdout.write('\r[%s%s]' % ('=' * done, ' ' *
+                                                       (50 - done)))
                         sys.stdout.flush()
 
             # Add a new line after the download bar
@@ -301,8 +291,8 @@ class UbuntuCorpusTrainer(Trainer):
             tar.extractall(path=self.extracted_data_directory,
                            members=track_progress(tar))
 
-        self.chatbot.logger.info(
-            'File extracted to {}'.format(self.extracted_data_directory))
+        self.chatbot.logger.info('File extracted to {}'.format(
+            self.extracted_data_directory))
 
         return True
 
@@ -318,10 +308,8 @@ class UbuntuCorpusTrainer(Trainer):
         if not self.is_extracted(self.extracted_data_directory):
             self.extract(corpus_download_path)
 
-        extracted_corpus_path = os.path.join(
-            self.extracted_data_directory,
-            '**', '**', '*.tsv'
-        )
+        extracted_corpus_path = os.path.join(self.extracted_data_directory,
+                                             '**', '**', '*.tsv')
 
         def chunks(items, items_per_chunk):
             for start_index in range(0, len(items), items_per_chunk):
@@ -352,8 +340,7 @@ class UbuntuCorpusTrainer(Trainer):
                                 in_response_to=previous_statement_text,
                                 conversation='training',
                                 created_at=date_parser.parse(row[0]),
-                                persona=row[1]
-                            )
+                                persona=row[1])
 
                             for preprocessor in self.chatbot.preprocessors:
                                 statement = preprocessor(statement)

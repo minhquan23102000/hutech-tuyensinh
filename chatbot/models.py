@@ -22,7 +22,6 @@ class ModelBase(object):
         return cls.__name__.lower()
 
 
-
 Base = declarative_base(cls=ModelBase)
 
 
@@ -31,12 +30,14 @@ class Paper(Base):
     paper_name = Column(String(250), unique=True)
     img_src = Column(String(255))
 
+
 class PaperLinkTag(Base):
     __tablename__ = 'paperlink'
     tag_id = Column(Integer, ForeignKey('tag.id'), primary_key=True)
     paper_id = Column(Integer, ForeignKey('paper.id'), primary_key=True)
     description = Column(String(255))
     paper = relationship('Paper')
+
 
 class Tag(Base):
     """
@@ -56,7 +57,6 @@ class Tag(Base):
 
     def __unicode__(self):
         return self.name
-    
 
 
 class Statement(Base, StatementMixin):
@@ -80,8 +80,7 @@ class Statement(Base, StatementMixin):
 
     tag_id = Column(Integer(), ForeignKey('tag.id'), nullable=True)
 
-    tags = relationship('Tag',
-                        backref='statements')
+    tags = relationship('Tag', backref='statements')
 
     in_response_to = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
                             nullable=True)
@@ -102,6 +101,8 @@ class Statement(Base, StatementMixin):
 
     next_question_3 = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
                              nullable=True)
+    auto_question = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
+                           nullable=True)
 
     def get_tags(self):
         """
@@ -140,8 +141,6 @@ class Statement(Base, StatementMixin):
         return f'{self.text}: {self.in_response_to}'
 
 
-
-
 class Role(enum.Enum):
     ADMIN = enum.auto()
     PEOPLE = enum.auto()
@@ -172,15 +171,15 @@ class Conversation(Base):
 
 class Question(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
-    conversation_id = Column(Integer(), ForeignKey(
-        'conversation.id'), nullable=False)
+    conversation_id = Column(Integer(),
+                             ForeignKey('conversation.id'),
+                             nullable=False)
     tag_id = Column(Integer(), ForeignKey('tag.id'), nullable=True)
     asking = Column(String(255), nullable=False)
     answer = Column(String(255), nullable=False)
     create_at = Column(DateTime(timezone=True), default=func.now())
     is_not_known = Column(Boolean(), default=False)
-    tag = relationship('Tag',
-                       backref=backref('questions', lazy='dynamic'))
+    tag = relationship('Tag', backref=backref('questions', lazy='dynamic'))
 
     next_question_1 = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
                              nullable=True)

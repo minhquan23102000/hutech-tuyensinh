@@ -22,9 +22,13 @@ def create_app():
     from .views import views
     app.register_blueprint(views, url_prefix='/')
     
-    #init_database(app)
+    # check = ""
+    # while (check != 'Y' and check != 'N'):
+    #     check = input("Tạo lại cơ sở dữ liệu? Y:N\n")
+    #     if (check == 'Y'):
+    #         init_database(app)
     
-    retrain_chatbot(app)
+    #retrain_chatbot(app)
     
     return app
 
