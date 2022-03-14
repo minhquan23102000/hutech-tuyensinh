@@ -24,7 +24,7 @@ def create_app():
     
     #init_database(app)
     
-    #retrain_chatbot(app)
+    retrain_chatbot(app)
     
     return app
 
