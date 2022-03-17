@@ -1,4 +1,3 @@
-
 import numpy as np
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -18,19 +17,19 @@ def create_app():
     # Connect db to app
     db.init_app(app)
 
-    
     from .views import views
     app.register_blueprint(views, url_prefix='/')
-    
+
     # check = ""
     # while (check != 'Y' and check != 'N'):
     #     check = input("Tạo lại cơ sở dữ liệu? Y:N\n")
     #     if (check == 'Y'):
     #         init_database(app)
-    
+
     #retrain_chatbot(app)
-    
+
     return app
+
 
 def init_database(app):
     # Import model
@@ -41,7 +40,8 @@ def init_database(app):
 
     chatbot.Sonny.storage.recreate_database()
 
-def retrain_chatbot(app): 
+
+def retrain_chatbot(app):
     # Retrain chatbot
     import chatbot
 

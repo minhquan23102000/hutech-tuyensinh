@@ -300,6 +300,7 @@ $(function() {
                 var response = linkify(String(data.response));
                 var tag = data.tag;
                 var next_questions = data.next_questions;
+                var auto_question = data.auto_question;
                 if (
                     tag != "lời chào" &&
                     tag != "cảm xúc" &&
@@ -318,16 +319,23 @@ $(function() {
 
                     setTimeout(function() {
                         generate_message(response, "user");
-                    }, 1000);
+                    }, 600);
                 } else {
                     setTimeout(function() {
                         generateMessageAction(data.response);
-                    }, 1000);
+                    }, 600);
                 }
+
+
 
                 setTimeout(function() {
                     generate_next_questions(next_questions);
                 }, 1700);
+                if (auto_question) {
+                    setTimeout(function() {
+                        send_message(auto_question);
+                    }, 2200);
+                }
             });
         }
     }

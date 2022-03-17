@@ -10,10 +10,12 @@ conversations:
 - - Bạn giúp gì cho tôi?
   - "Minh có thể giúp bạn tư vấn tuyển sinh học bạ, hỗ trợ bạn điên tờ khai. Ngoài ra nếu bạn muốn biết nhiều hơn về HUTECH bạn cũng có thể hỏi mình.\n 
     Một điều đặc biệt nữa là mình có thể tư vấn chuyên ngành cho bạn nữa đấy nhé. Nhưng hiện tại mình chỉhọc về ngành CNTT, một ngành rất hot hiện nay phải không?"
+  - nextquestion: ['Tham quan HUTECH', 'Tư vấn chuyên ngành', 'Tư vấn tuyển sinh học bạ']
 
 - - Các tính năng của trợ lý ảo?
   - "Minh có thể giúp bạn tư vấn tuyển sinh học bạ, hỗ trợ bạn điên tờ khai. Ngoài ra nếu bạn muốn biết nhiều hơn về HUTECH bạn cũng có thể hỏi mình.\n 
     Một điều đặc biệt nữa là mình có thể tư vấn chuyên ngành cho bạn nữa đấy nhé. Nhưng hiện tại mình chỉhọc về ngành CNTT, một ngành rất hot hiện nay phải không?"
+  - nextquestion: ['Tham quan HUTECH', 'Tư vấn chuyên ngành', 'Tư vấn tuyển sinh học bạ']
 
 
 

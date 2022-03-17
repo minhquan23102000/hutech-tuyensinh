@@ -32,14 +32,7 @@ biết_đâu
 biết_đâu_chừng
 biết_đâu_đấy
 biết_được
-buổi
-buổi_làm
-buổi_mới
-buổi_ngày
-buổi_sớm
-bà
 bà_ấy
-bài
 bài_bác
 bài_bỏ
 bài_cái
@@ -67,7 +60,6 @@ bạn
 bản
 bản_bộ
 bản_riêng
-bản_thân
 bản_ý
 bất_chợt
 bất_cứ
@@ -112,7 +104,6 @@ bị_chú
 bị_vì
 bỏ_bà
 bỏ_cha
-bỏ_cuộc
 bỏ_không
 bỏ_lại
 bỏ_mình
@@ -149,7 +140,6 @@ bởi_vì
 bởi_vậy
 bởi_đâu
 bức
-cao
 cao_lâu
 cao_ráo
 cao_răng
@@ -184,7 +174,6 @@ cho_đến_nỗi
 choa
 chu_cha
 chui_cha
-chung
 chung_cho
 chung_chung
 chung_cuộc
@@ -194,14 +183,12 @@ chung_qui
 chung_quy
 chung_quy_lại
 chung_ái
-chuyển
 chuyển_tự
 chuyển_đạt
 chuyện
 chuẩn_bị
 chành_chạnh
 chí_chết
-chính
 chính_bản
 chính_giữa
 chính_là
@@ -209,7 +196,6 @@ chính_thị
 chính_điểm
 chùn_chùn
 chùn_chũn
-chú
 chú_dẫn
 chú_khách
 chú_mày
@@ -223,7 +209,6 @@ chăn_chắn
 chăng
 chăng_chắc
 chăng_nữa
-chơi
 chơi_họ
 chưa_bao_giờ
 chưa_chắc
@@ -265,7 +250,6 @@ chịu_chưa
 chịu_lời
 chịu_tốt
 chịu_ăn
-chọn
 chọn_bên
 chọn_ra
 chốc_chốc
@@ -296,7 +280,6 @@ con_dạ
 con_nhà
 con_tính
 cu_cậu
-cuối
 cuối_cùng
 cuối_điểm
 cuốn
@@ -304,7 +287,6 @@ cuộc
 càng
 càng_càng
 càng_hay
-cá_nhân
 các
 các_cậu
 cách
@@ -354,7 +336,6 @@ có_đáng
 có_đâu
 có_được
 cóc_khô
-cô
 cô_mình
 cô_quả
 cô_tăng
@@ -409,7 +390,6 @@ cần_gì
 cần_số
 cật_lực
 cật_sức
-cậu
 cổ_lai
 cụ_thể
 cụ_thể_là
@@ -491,7 +471,6 @@ giống
 giống_người
 giống_nhau
 giống_như
-giờ
 giờ_lâu
 giờ_này
 giờ_đi
@@ -570,7 +549,6 @@ khi_trước
 khiến
 khoảng
 khoảng_không
-khá
 khá_tốt
 khác
 khác_gì
@@ -580,7 +558,6 @@ khác_nào
 khác_thường
 khác_xa
 khách
-khó
 khó_biết
 khó_chơi
 khó_khăn

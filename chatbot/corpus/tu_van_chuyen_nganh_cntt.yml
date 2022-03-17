@@ -1,0 +1,20 @@
+categories:
+- tư vấn chuyên ngành CNTT
+conversations:
+- - Ngành CNTT là gì?
+  - Hiểu một cách đơn giản, Công nghệ thông tin là ngành sử dụng máy tính và phần mềm máy tính để chuyển đổi, lưu trữ, bảo vệ, xử lý, truyền và thu thập thông tin. Người làm việc trong trong ngành này thường được gọi là IT (Information Technology).
+  - nextquestion: ["Ngành này có mấy chuyên ngành chính?", "Không giỏi toán học ngành này được không"]
+
+- - Ngành CNTT có mấy chuyên ngành chính?
+  - "Ngành CNTT có rất nhiều các chuyên ngành nhỏ khác nhau, nhưng có thể được tổng hợp thành 5 nhóm sau:\n
+      + Công nghệ phần mềm (Làm web, app trên di động, game, ...)\n
+      + An toàn thông tin (Bảo mật thông tin cho hệ thống, có thể gọi là hacker mũ trắng)\n
+      + Hệ thống thông tin (Quản lý thiết kế, các hệ thống thông tin cho các phần mềm, các thiết bị trong hệ thống hoạt động một cách trơn chu)\n
+      + Mạng máy tính\n
+      + Trí tuệ nhân tạo\n
+      Hiện nay khoa CNTT HUTECH đang hỗ trợ đào tạo tất cả chuyên ngành này bạn nhé."
+
+- - Tư vấn chuyên ngành?
+  - "Hiện mình chỉ được dạy về ngành CNTT, bạn muốn hỏi gì nè?"
+  - nextquestion: ["Ngành CNTT là gì?"]
+
