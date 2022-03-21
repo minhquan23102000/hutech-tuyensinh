@@ -26,7 +26,7 @@ def create_app():
     #     if (check == 'Y'):
     #         init_database(app)
 
-    #retrain_chatbot(app)
+    retrain_chatbot(app)
 
     return app
 
