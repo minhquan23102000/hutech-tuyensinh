@@ -1,12 +1,43 @@
 categories:
 - tư vấn tuyển sinh học bạ
 conversations:
+- - Có bao nhiêu nghành đang tuyển sinh tại trường?
+  - "Năm 2022 trường Đại học Công Nghệ TP.HCM tổ chức xét tuyển cho 59 nghành đào tạo cho trình độ Đại học chính quy với 04 phương thức xét tuyển độc lập."
+  - nextquestion: ["Có mấy phương thức xét tuyển vào trường HUTECH?"]
+
+- - Có mấy phương thức xét tuyển vào trường HUTECH?
+  - "Có 04 phương thức xét tuyển tại HUTECH năm 2022 gồm:\n
+    1. Xét tuyển kết quả kỳ thi tốt nghiệp THPT 2022 \n
+    2. Xét tuyển kết quả kỳ thi Đánh giá năng lực (ĐGNL) 2022 của ĐH Quốc gia TP.HCM \n
+    3. Xét tuyển học bạ theo tổng điểm trung bình 03 môn năm lớp 12 \n
+    4. Xét tuyển học bạ theo tổng điểm trung bình 03 học kỳ (lớp 11 và học kỳ 1 lớp 12)\n\n
+    Tất cả thí sinh tốt nghiệp THPT trên cả nước đều có thể xét tuyển vào HUTECH theo 04 phương thức này."
+  - nextquestion: ["Hồ sơ xét tuyển gồm những giấy tờ gì?"]
+
+- - Cách tuyển sinh vào HUTECH
+  - "Có 04 phương thức xét tuyển tại HUTECH năm 2022 gồm:\n
+    1. Xét tuyển kết quả kỳ thi tốt nghiệp THPT 2022 \n
+    2. Xét tuyển kết quả kỳ thi Đánh giá năng lực (ĐGNL) 2022 của ĐH Quốc gia TP.HCM \n
+    3. Xét tuyển học bạ theo tổng điểm trung bình 03 môn năm lớp 12 \n
+    4. Xét tuyển học bạ theo tổng điểm trung bình 03 học kỳ (lớp 11 và học kỳ 1 lớp 12)\n\n
+    Tất cả thí sinh tốt nghiệp THPT trên cả nước đều có thể xét tuyển vào HUTECH theo 04 phương thức này."
+
 - - Hồ sơ xét tuyển gồm những giấy tờ gì?
   - "Hồ sơ xét tuyển theo hình thức học bạ bao gồm: \n
       + Phiếu đăng ký xét tuyển\n
       + Bản photo công chứng học bạ THPT\n
       + Bản photo công chứng, bằng tốt nghiệp hoặc giấy chứng nhận tốt nghiệp.\n
-      Lưu ý: nếu bạn chưa tốt nghiệp THPT, thì chỉ nộp trước phiếu đăng ký xét tuyển để được ưu tiên nhé."
+      Lưu ý: nếu bạn chưa tốt nghiệp THPT, thì hãy nộp trước phiếu đăng ký xét tuyển để được ưu tiên nhé."
+  - nextquestion: ["Bao nhiêu điểm thì đủ điều kiện để xét tuyển học bạ vào trường?"]
+
+- - Bao nhiêu điểm thì đủ điều kiện để xét tuyển học bạ vào trường?
+  - "- Đối với phương thức xét học bạ lớp 12 theo tổ hợp 03 môn, thí sinh cần có tổng điểm trung bình năm lớp 12 của 03 môn trong tổ hợp xét tuyển đạt từ 18 điểm trở lên.\n
+    - Đối với phương thức xét tuyển học bạ 03 học kỳ, thí sinh cần có tổng điểm trung bình 03 học kỳ xét tuyển (gồm 2 học kỳ lớp 11 và học kỳ 1 lớp 12) đạt từ 18 điểm trở lên.\n 
+      Lưu ý: với nhóm ngành Khoa học sức khỏe, điều kiện xét tuyển học bạ áp dụng theo quy định của Bộ GD&ĐT bạn nhé"
+  - nextquestion: ["Cách tính điểm học bạ"]
+
+
+
       
 - - Thời gian kết thúc xét tuyển học bạ đợt một?
   - Đợt xét tuyển học bạ lần một kết thúc vào 31/03 bạn nhé.
