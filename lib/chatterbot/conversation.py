@@ -23,7 +23,7 @@ class StatementMixin(object):
         'next_question_1',
         'next_question_2',
         'next_question_3',
-        'auto_question'
+      
     ]
 
     extra_statement_field_names = []
@@ -112,7 +112,7 @@ class Statement(StatementMixin):
         'next_question_1',
         'next_question_2',
         'next_question_3',
-        'auto_question'
+     
     )
 
     def __init__(self, text=None, in_response_to=None, **kwargs):

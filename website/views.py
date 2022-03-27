@@ -35,6 +35,5 @@ def get_chat_history():
     else:  #
         chat_history = dao.get_chat_history(conversation_id, int(topn))
 
-    data = {"chat_history": chat_history}
+    return jsonify(chat_history)
 
-    return jsonify(data)

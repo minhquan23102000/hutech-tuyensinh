@@ -3,6 +3,7 @@ from lib.chatterbot.response_selection import get_random_response
 from lib.chatterbot.trainers import ChatterBotCorpusTrainer
 from website.config import SQLALCHEMY_DATABASE_URI
 
+from chatbot.models import Statement
 from chatbot.sentence_similarity import (VietnameseCosineSimilarity,
                                          Word2VecSimilarity)
 
@@ -24,7 +25,8 @@ Sonny = MyChatBot(
             "import_path": "chatbot.logic_adapter.MyBestMatch",
             "default_response": DEFAULT_REPONSE,
             "response_selection_method": get_random_response,
-        }
+        },
+        "chatbot.logic_adapter.NameRememberAdapter",
     ],
     database_uri=SQLALCHEMY_DATABASE_URI,
 )
@@ -43,70 +45,56 @@ def __train__(filePath):
 def chatbot_reponse(msg: str, oldtag: str = None, conversation_id=None):
     # Check message lem
     if len(msg) > 255:
-        return {"response": "Dài quá!!", "tag": "none"}
+        return {"response": "Dài quá!!", "tag": "none", "next_questions": []}
 
     # Get reponse from bot
     if not oldtag:
         oldtag = "none"
 
     # Request response to bot
-    response = Sonny.get_response(statement=msg, tags=oldtag)
-    tag = response.get_tags()
-    next_questions = response.get_next_questions()
-    auto_question = response.auto_question
+    response_statement = Sonny.get_response(statement=msg, tags=oldtag)
+    tag = response_statement.get_tags()
+    next_questions = response_statement.get_next_questions()
 
     if not tag:
         tag = "none"
 
     # Check if this is an unknown question that chatbot has never learned before
     is_not_known = False
-    if response.confidence < 0.35:
+    if response_statement.confidence < 0.35:
         response = DEFAULT_REPONSE
+        next_questions = []
         is_not_known = True
         tag = "none"
     else:
-        response = response.text
+        response = response_statement.text
 
     if is_not_known:
         # Google search this paper if bot does not know about it
         response = google_search_paper(msg)
 
-    response_data = {
-        "response": response,
-        "tag": tag,
-        "next_questions": next_questions,
-        "auto_question": auto_question,
-    }
+    response_data = {"response": response, "tag": tag, "next_questions": next_questions}
 
     # Store this question to database
     if conversation_id:
+        statement_id = None if is_not_known else response_statement.id
         store_question(
-            asking=msg,
-            answer=response,
-            oldtag=oldtag,
-            conversation_id=conversation_id,
-            is_not_known=is_not_known,
+            asking=msg, answer=response, statement_id=statement_id, conversation_id=conversation_id
         )
 
     return response_data
 
 
-def store_question(asking: str, answer: str, oldtag, conversation_id, is_not_known):
+def store_question(asking: str, answer:str, statement_id: int = None, conversation_id: int = None):
     from website import db
 
-    from .models import Question, Tag
+    from .models import Question
 
     msg_lang = langid.classify(asking)[0]
     if msg_lang in ["vi"]:
         question = Question(
-            asking=asking,
-            answer=answer,
-            conversation_id=conversation_id,
-            is_not_known=is_not_known,
+            asking=asking, answer=answer, statement_id=statement_id, conversation_id=conversation_id
         )
-        tag_db = db.session.query(Tag).filter_by(name=oldtag).first()
-        if tag_db:
-            question.tag_id = tag_db.id
         db.session.add(question)
         db.session.commit()
 
@@ -149,6 +137,6 @@ def get_unknow_reponse():
     unknow_reponses = [
         DEFAULT_REPONSE,
         "Xin lỗi, bạn có thể nói rõ hơn được không?",
-        "Xin lỗi, mình vẫn chưa học qua câu từ này",
+        "Xin lỗi, mình vẫn chưa học qua điều này.",
     ]
     return random.choice(unknow_reponses)

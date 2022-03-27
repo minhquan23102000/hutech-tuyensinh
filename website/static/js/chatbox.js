@@ -319,22 +319,22 @@ $(function() {
 
                     setTimeout(function() {
                         generate_message(response, "user");
-                    }, 600);
+                    }, 200);
                 } else {
                     setTimeout(function() {
                         generateMessageAction(data.response);
-                    }, 600);
+                    }, 200);
                 }
 
 
 
                 setTimeout(function() {
                     generate_next_questions(next_questions);
-                }, 1700);
+                }, 1000);
                 if (auto_question) {
                     setTimeout(function() {
                         send_message(auto_question);
-                    }, 2200);
+                    }, 1500);
                 }
             });
         }
@@ -399,6 +399,8 @@ $(function() {
                     generate_message(chat["answer"], "user");
                 }
             }
+            speakMessage(data.guide);
+            generate_next_questions(data.next_questions);
         });
     }
 
@@ -782,4 +784,5 @@ $(function() {
             .animate({ scrollTop: $(".chat-logs")[0].scrollHeight }, 1200);
     }
 
+    window.send_message = send_message;
 });

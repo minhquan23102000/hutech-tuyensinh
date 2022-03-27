@@ -32,25 +32,26 @@ class Paper(Base):
 
 
 class PaperLinkTag(Base):
-    __tablename__ = 'paperlink'
-    tag_id = Column(Integer, ForeignKey('tag.id'), primary_key=True)
-    paper_id = Column(Integer, ForeignKey('paper.id'), primary_key=True)
+    __tablename__ = "paperlink"
+    tag_id = Column(Integer, ForeignKey("tag.id"), primary_key=True)
+    paper_id = Column(Integer, ForeignKey("paper.id"), primary_key=True)
     description = Column(String(255))
-    paper = relationship('Paper')
+    paper = relationship("Paper")
 
 
 class Tag(Base):
     """
     A tag that describes a statement.
     """
+
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(constants.TAG_NAME_MAX_LENGTH), unique=True)
     description = Column(String(255))
-    papers = relationship('PaperLinkTag')
+    papers = relationship("PaperLinkTag")
     tokhai_src = Column(String(255))
 
     def __repr__(self):
-        return '<Tag %r>' % (self.name)
+        return "<Tag %r>" % (self.name)
 
     def __str__(self):
         return self.name
@@ -63,6 +64,7 @@ class Statement(Base, StatementMixin):
     """
     A Statement represents a sentence or phrase.
     """
+
     id = Column(Integer, primary_key=True, autoincrement=True)
     confidence = 0
 
@@ -70,28 +72,30 @@ class Statement(Base, StatementMixin):
 
     search_text = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
                          nullable=True,
-                         server_default='')
+                         server_default="")
 
-    conversation = Column(String(constants.CONVERSATION_LABEL_MAX_LENGTH),
-                          nullable=False,
-                          server_default='')
+    conversation = Column(
+        String(constants.CONVERSATION_LABEL_MAX_LENGTH),
+        nullable=False,
+        server_default="",
+    )
 
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
-    tag_id = Column(Integer(), ForeignKey('tag.id'), nullable=True)
+    tag_id = Column(Integer(), ForeignKey("tag.id"), nullable=True)
 
-    tags = relationship('Tag', backref='statements')
+    tags = relationship("Tag", backref="statements")
 
     in_response_to = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
                             nullable=True)
 
     search_in_response_to = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
                                    nullable=False,
-                                   server_default='')
+                                   server_default="")
 
     persona = Column(String(constants.PERSONA_MAX_LENGTH),
                      nullable=False,
-                     server_default='')
+                     server_default="")
 
     next_question_1 = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
                              nullable=True)
@@ -101,8 +105,6 @@ class Statement(Base, StatementMixin):
 
     next_question_3 = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
                              nullable=True)
-    auto_question = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
-                           nullable=True)
 
     def get_tags(self):
         """
@@ -111,7 +113,7 @@ class Statement(Base, StatementMixin):
         if self.tags:
             return self.tags.name
         else:
-            return ''
+            return ""
 
     def add_tags(self, tags):
         """
@@ -123,22 +125,22 @@ class Statement(Base, StatementMixin):
     def get_next_questions(self):
         next_questions = []
 
-        if self.next_question_1 != '':
+        if self.next_question_1 != "":
             next_questions.append(self.next_question_1)
 
-        if self.next_question_2 != '':
+        if self.next_question_2 != "":
             next_questions.append(self.next_question_2)
 
-        if self.next_question_3 != '':
+        if self.next_question_3 != "":
             next_questions.append(self.next_question_3)
 
         return next_questions
 
     def __str__(self):
-        return f'{self.text}: {self.in_response_to}'
+        return f"{self.text}: {self.in_response_to}"
 
     def __unicode__(self):
-        return f'{self.text}: {self.in_response_to}'
+        return f"{self.text}: {self.in_response_to}"
 
 
 class Role(enum.Enum):
@@ -163,43 +165,35 @@ class Sentiment(enum.Enum):
 
 class Conversation(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer(), ForeignKey('user.id'), nullable=True)
+    user_id = Column(Integer(), ForeignKey("user.id"), nullable=True)
     create_at = Column(DateTime(timezone=True), default=func.now())
     sentiment = Column(Enum(Sentiment), nullable=True)
     question = relationship("Question", backref=backref("question"))
+    person_name = Column(String(), nullable=True)
 
 
 class Question(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     conversation_id = Column(Integer(),
-                             ForeignKey('conversation.id'),
+                             ForeignKey("conversation.id"),
                              nullable=False)
-    tag_id = Column(Integer(), ForeignKey('tag.id'), nullable=True)
     asking = Column(String(255), nullable=False)
-    answer = Column(String(255), nullable=False)
     create_at = Column(DateTime(timezone=True), default=func.now())
-    is_not_known = Column(Boolean(), default=False)
-    tag = relationship('Tag', backref=backref('questions', lazy='dynamic'))
-
-    next_question_1 = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
-                             nullable=True)
-
-    next_question_2 = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
-                             nullable=True)
-
-    next_question_3 = Column(String(constants.STATEMENT_TEXT_MAX_LENGTH),
-                             nullable=True)
+    answer = Column(String(255), nullable=False)
+    statement_id = Column(Integer(), ForeignKey("statement.id"), nullable=True)
+    statement = relationship("Statement", backref=backref("statements"))
 
     def get_next_questions(self):
         next_questions = []
+        statement = self.statement
 
-        if self.next_question_1:
-            next_questions.append(self.next_question_1)
+        if statement.next_question_1:
+            next_questions.append(statement.next_question_1)
 
-        if self.next_question_2:
-            next_questions.append(self.next_question_2)
+        if statement.next_question_2:
+            next_questions.append(statement.next_question_2)
 
-        if self.next_question_3:
-            next_questions.append(self.next_question_3)
+        if statement.next_question_3:
+            next_questions.append(statement.next_question_3)
 
         return next_questions
