@@ -164,7 +164,30 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> 
+
+                        <div class="row valign-wrapper no-margin">
+
+                                <div class="col s7">
+                                    <p>
+                                        Để tiện hơn bạn có thể nộp học bạ tại đây để điền hồ sơ tự động
+                                    </p>
+                                </div>
+                                <div class="col s5">
+                                    <div class="card center-align">
+                                        <div id="cccd_img_holder" class="card-image file-field">
+                                            <i class="large material-icons grey-text waves-effect waves-green">
+                                                add_a_photo
+
+                                            </i>
+                                            <input type="file">
+                                                
+                                            </input>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
+                        
                         <div class="row">
                             <p class="black-text text-bold">
                                 Nơi học THPT hoặc tương đương (ghi tên trường và nơi trường đóng: huyện (quận), tỉnh (thành phố)):
@@ -465,7 +488,8 @@
 </body>
 <script type="text/javascript">
     M.AutoInit();
-
+        var cccd_img;
+        var hocba_img;
         let camera_button = document.querySelector("#start-camera");
         let video = document.querySelector("#video");
         let click_button = document.querySelector("#click-photo");
@@ -479,7 +503,7 @@
         click_button.addEventListener('click', function() {
             canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
             let image_data_url = canvas.toDataURL('image/jpeg');
-
+            cccd_img = image_data_url;
         });
 
 
