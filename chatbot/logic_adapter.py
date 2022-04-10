@@ -176,6 +176,8 @@ class NameRememberAdapter(LogicAdapter):
         
         if person_name:
             # Store person name to database
+            if not conversation:
+                conversation = dao.new_conversation()
             conversation.person_name = person_name
             response = f"Xin chào {person_name}, bạn có một cái tến rất đẹp!"
             statement = Statement(response)
