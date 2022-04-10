@@ -247,33 +247,36 @@
                                 Đối tượng ưu tiên tuyển sinh: (Thuộc đối tượng nào thì chọn đối tượng bên phải)
                             </p>
                         </div>
-                        <div class="col s3 input-field">
-                            <select id="doituonguutien">
-                                <option value="" disabled selected>
-                                    Đối tượng ưu tiên
-                                </option>
-                                <option value="01">
-                                    01
-                                </option>
-                                <option value="02">
-                                    02
-                                </option>
-                                <option value="03">
-                                    03
-                                </option>
-                                <option value="04">
-                                    04
-                                </option>
-                                <option value="05">
-                                    05
-                                </option>
-                                <option value="06">
-                                    06
-                                </option>
-                                <option value="07">
-                                    07
-                                </option>
-                            </select>
+                        <div class="col s3">
+                            <div class="input-field">
+                                <select id="doituonguutien" class="browser-default">
+                                    <option value="" disabled selected>
+                                        Đối tượng ưu tiên
+                                    </option>
+                                    <option value="01">
+                                        01
+                                    </option>
+                                    <option value="02">
+                                        02
+                                    </option>
+                                    <option value="03">
+                                        03
+                                    </option>
+                                    <option value="04">
+                                        04
+                                    </option>
+                                    <option value="05">
+                                        05
+                                    </option>
+                                    <option value="06">
+                                        06
+                                    </option>
+                                    <option value="07">
+                                        07
+                                    </option>
+                                </select>
+                            
+                            </div>
                         </div>
                     </div>
                     <div class="row valign-wrapper no-margin">
@@ -283,24 +286,27 @@
                                 KV2, KV3) vào ô khu vực ưu tiên)
                             </p>
                         </div>
-                        <div class="col s3 input-field">
-                            <select id="doituonguutien">
-                                <option value="" disabled selected>
-                                    Khu vực ưu tiên
-                                </option>
-                                <option value="01">
-                                    KV1
-                                </option>
-                                <option value="02">
-                                    KV2-NT
-                                </option>
-                                <option value="03">
-                                    KV2
-                                </option>
-                                <option value="04">
-                                    KV3
-                                </option>
-                            </select>
+                        <div class="col s3">
+                            <div class="input-field">
+                                <select id="khuvucuutien" class="browser-default">
+                                    <option value="" disabled selected>
+                                        Khu vực ưu tiên
+                                    </option>
+                                    <option value="01">
+                                        KV1
+                                    </option>
+                                    <option value="02">
+                                        KV2-NT
+                                    </option>
+                                    <option value="03">
+                                        KV2
+                                    </option>
+                                    <option value="04">
+                                        KV3
+                                    </option>
+                                </select>
+                            
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -486,7 +492,7 @@
     let video = document.querySelector("#video");
     let click_button = document.querySelector("#click-photo");
     let canvas = document.querySelector("#canvas");
-
+    
     function preview(element) {
         var ele_input = element.id + "_img";
         var ele_img = document.getElementById(ele_input);
@@ -541,8 +547,8 @@
         }
         $('#class_infor').val(result["class_infor_12"])
         $('#tongiao').val('Không');
-        $('#hocluc').val('Không có thông tin');
-        $('#hanhkiem').val('Không có thông tin');
+        M.updateTextFields();
+
 
     }
     async function startCamera(element) {
